@@ -44,29 +44,32 @@ jobs:
             client/dist
             server/package.json
 
-            deploy:
-              needs: build
-              runs-on: ubuntu-latest
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
 
-              steps:
-                - name: Checkout Repository
-                  uses: actions/checkout@v2
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-                - name: Download Artifacts
-                  uses: actions/download-artifact@v2
-                  with:
-                    name: test-ts
-                    path: test-ts
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: test-ts
+          path: test-ts
 
-                - name: Push to Live Branch
-                  run: |
-                    git config --global user.email "mansu7802@gmail.com"
-                    git config --global user.name "suman7802"
-                    
-                    git checkout -b live || git checkout live
+      - name: Push to Target Repository
+        run: |
+          git config --global user.email "mansu7802@gmail.com"
+          git config --global user.name "suman7802"
+          git clone https://github.com/suman7802/test-ts2.git target-repo
 
-                    cp -r test-ts/* .
+          cd target-repo
 
-                    git add .
-                    git commit -m "Copy artifacts from source-repo"
-                    git push origin live
+          git checkout -b main || git checkout main
+
+          cp -r ../test-ts/* .
+
+          git add .
+          git commit -m "Copy artifacts from source-repo"
+          git push origin main
