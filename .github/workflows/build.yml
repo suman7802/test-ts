@@ -35,11 +35,14 @@ jobs:
           cd client
           npm run build
 
+      - name: Copy Package.json
+        run: |
+          cp server/package.json dist
+
       - name: Archive Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: test-ts
           path: |
-            server/dist server/package.json
+            server/dist
             client/dist
-            
