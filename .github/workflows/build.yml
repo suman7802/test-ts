@@ -41,5 +41,5 @@ jobs:
           name: test-ts
           path: |
             server/dist 
+            server server/package.json
             client/build
-            server/package.json
