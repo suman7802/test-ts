@@ -38,7 +38,7 @@ jobs:
       - name: Archive Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: dist
+          name: test-ts
           path: |
-            server/dist
+            dist
             client/dist
