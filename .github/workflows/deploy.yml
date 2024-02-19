@@ -1,0 +1,46 @@
+name: Deploy Server and Client
+
+on:
+  workflow_run:
+    workflows: ['source-repo/Build Server and Client']
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: test-ts
+          path: test-ts
+
+      - name: Push to Target Repository
+        run: |
+          # Set up Git configuration
+          git config --global mansu7802@gmail.com "actions@github.com"
+          git config --global suman7802 "GitHub Actions"
+
+          # Clone the target repository
+          git clone https://github.com/suman7802/test-ts2.git target-repo
+
+          # Move to the target repository directory
+          cd target-repo
+
+          # Create a new branch if it doesn't exist
+          git checkout -b main || git checkout main
+
+          # Copy the artifacts from source to target
+          cp -r ../test-ts/* .
+
+          # Add and commit changes
+          git add .
+          git commit -m "Copy artifacts from source-repo"
+
+          # Push changes to the main branch
+          git push origin main
