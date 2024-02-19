@@ -35,9 +35,9 @@ jobs:
           cd client
           npm run build
 
-      - name: Copy Package.json to Server's Dist
+      - name: Copy Package.json to Server
         run: |
-          cp server/package.json server/dist/
+          cp server/package.json server/
 
       - name: Archive Artifacts
         uses: actions/upload-artifact@v2
