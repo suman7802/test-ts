@@ -1,14 +1,10 @@
 name: Deploy Server and Client
 
-# on:
-#   workflow_run:
-#     workflows: ['Build Server and Client']
-#     types:
-#       - completed
 on:
-  push:
-    branches:
-      - dev_server
+  workflow_run:
+    workflows: ['Build Server and Client']
+    types:
+      - completed
 
 jobs:
   deploy:
