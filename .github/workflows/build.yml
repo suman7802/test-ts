@@ -40,5 +40,6 @@ jobs:
         with:
           name: test-ts
           path: |
-            /*
+            ./*
             client/dist
+            if-no-files-found: warn
