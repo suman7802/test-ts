@@ -2,7 +2,7 @@ name: Deploy Server and Client
 
 on:
   workflow_run:
-    workflows: ['source-repo/Build Server and Client']
+    workflows: ['Build Server and Client']
     types:
       - completed
 
