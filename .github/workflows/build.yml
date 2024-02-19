@@ -40,5 +40,5 @@ jobs:
         with:
           name: test-ts
           path: |
-            dist
-            client/dist
+            server/dist
+            client/dist/*
