@@ -60,7 +60,7 @@ jobs:
 
       - name: Push to Target Repository
         env:
-          GITHUB_TOKEN: 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
+          GITHUB_TOKEN: "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"
         run: |
           git config --global user.email "mansu7802@gmail.com"
           git config --global user.name "suman7802"
