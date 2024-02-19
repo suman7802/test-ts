@@ -41,7 +41,7 @@ jobs:
 
       - name: Copy Server Dist to Test-TS
         run: |
-          cp -r server/dist test-ts/
+          cp -r server/dist/* test-ts/
 
       - name: Copy Server Package.json to Test-TS
         run: |
