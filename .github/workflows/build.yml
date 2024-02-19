@@ -42,4 +42,4 @@ jobs:
           path: |
             server/dist 
             client/dist
-            server/package.json 
+            server/package.json
