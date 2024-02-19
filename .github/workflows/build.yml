@@ -41,7 +41,7 @@ jobs:
 
       - name: Copy Server Dist to Test-TS
         run: |
-          cp -r server/dist test-ts/server
+          cp -r server/dist test-ts/server/dist
 
       - name: Copy Server Package.json to Test-TS
         run: |
@@ -49,7 +49,7 @@ jobs:
 
       - name: Copy Client Dist to Test-TS
         run: |
-          cp -r client/dist test-ts/client
+          cp -r client/dist test-ts/client/dist
 
       - name: Archive Artifacts
         uses: actions/upload-artifact@v2
