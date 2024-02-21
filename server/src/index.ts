@@ -17,6 +17,4 @@ app.get('/test', (req: Request, res: Response) => {
   res.send('This is a test route.');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+app.listen();
