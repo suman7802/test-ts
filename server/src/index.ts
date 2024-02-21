@@ -2,7 +2,6 @@ import path from 'path';
 import express, {Request, Response} from 'express';
 
 const app = express();
-const port = 8000;
 
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 app.get('/', (req, res) =>
