@@ -7,8 +7,8 @@ const path_1 = __importDefault(require("path"));
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const port = 8000;
-app.use(express_1.default.static(path_1.default.join(__dirname, '..', 'client', 'dist')));
-app.get('/', (req, res) => res.sendFile(path_1.default.join(__dirname, '..', 'client', 'dist', 'index.html')));
+app.use(express_1.default.static(path_1.default.join(__dirname, 'dist')));
+app.get('/', (req, res) => res.sendFile(path_1.default.join(__dirname,'dist', 'index.html')));
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
